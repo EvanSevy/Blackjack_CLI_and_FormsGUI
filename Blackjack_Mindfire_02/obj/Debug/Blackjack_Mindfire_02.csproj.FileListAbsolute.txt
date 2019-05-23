@@ -1,0 +1,38 @@
+c:\users\rune_star\documents\visual studio 2017\Projects\Blackjack_Mindfire_02\Blackjack_Mindfire_02\bin\Debug\Blackjack_Mindfire_02.exe.config
+c:\users\rune_star\documents\visual studio 2017\Projects\Blackjack_Mindfire_02\Blackjack_Mindfire_02\bin\Debug\Blackjack_Mindfire_02.exe
+c:\users\rune_star\documents\visual studio 2017\Projects\Blackjack_Mindfire_02\Blackjack_Mindfire_02\bin\Debug\Blackjack_Mindfire_02.pdb
+c:\users\rune_star\documents\visual studio 2017\Projects\Blackjack_Mindfire_02\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.csprojResolveAssemblyReference.cache
+c:\users\rune_star\documents\visual studio 2017\Projects\Blackjack_Mindfire_02\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.UI.GUI.GUIForm.resources
+c:\users\rune_star\documents\visual studio 2017\Projects\Blackjack_Mindfire_02\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.csproj.GenerateResource.Cache
+c:\users\rune_star\documents\visual studio 2017\Projects\Blackjack_Mindfire_02\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.exe
+c:\users\rune_star\documents\visual studio 2017\Projects\Blackjack_Mindfire_02\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.pdb
+C:\Users\Rune_Star\Documents\Visual Studio 2017\Projects\Blackjack_Mindfire_02\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.Properties.Resources.resources
+C:\Users\Rune_Star\Documents\Visual Studio 2017\Projects\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.csprojResolveAssemblyReference.cache
+C:\Users\Rune_Star\Documents\Visual Studio 2017\Projects\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.Properties.Resources.resources
+C:\Users\Rune_Star\Documents\Visual Studio 2017\Projects\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.UI.GUI.GUIForm.resources
+C:\Users\Rune_Star\Documents\Visual Studio 2017\Projects\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.csproj.GenerateResource.Cache
+C:\Users\Rune_Star\Documents\Visual Studio 2017\Projects\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.exe
+C:\Users\Rune_Star\Documents\Visual Studio 2017\Projects\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.pdb
+C:\Users\Rune_Star\Documents\Visual Studio 2017\Projects\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\bin\Debug\Blackjack_Mindfire_02.exe.config
+C:\Users\Rune_Star\Documents\Visual Studio 2017\Projects\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\bin\Debug\Blackjack_Mindfire_02.exe
+C:\Users\Rune_Star\Documents\Visual Studio 2017\Projects\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\bin\Debug\Blackjack_Mindfire_02.pdb
+C:\RuneStar_Learn\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\bin\Debug\Blackjack_Mindfire_02.exe.config
+C:\RuneStar_Learn\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\bin\Debug\Blackjack_Mindfire_02.exe
+C:\RuneStar_Learn\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\bin\Debug\Blackjack_Mindfire_02.pdb
+C:\RuneStar_Learn\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.csprojAssemblyReference.cache
+C:\RuneStar_Learn\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.Properties.Resources.resources
+C:\RuneStar_Learn\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.UI.GUI.GUIForm.resources
+C:\RuneStar_Learn\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.csproj.GenerateResource.cache
+C:\RuneStar_Learn\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.csproj.CoreCompileInputs.cache
+C:\RuneStar_Learn\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.exe
+C:\RuneStar_Learn\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.pdb
+C:\RuneStar_Work\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\bin\Debug\Blackjack_Mindfire_02.exe.config
+C:\RuneStar_Work\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\bin\Debug\Blackjack_Mindfire_02.exe
+C:\RuneStar_Work\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\bin\Debug\Blackjack_Mindfire_02.pdb
+C:\RuneStar_Work\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.csprojAssemblyReference.cache
+C:\RuneStar_Work\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.Properties.Resources.resources
+C:\RuneStar_Work\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.UI.GUI.GUIForm.resources
+C:\RuneStar_Work\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.csproj.GenerateResource.cache
+C:\RuneStar_Work\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.csproj.CoreCompileInputs.cache
+C:\RuneStar_Work\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.exe
+C:\RuneStar_Work\Blackjack\Blackjack_Mindfire_02_Fixes\Blackjack_Mindfire_02\obj\Debug\Blackjack_Mindfire_02.pdb
