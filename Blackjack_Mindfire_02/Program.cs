@@ -20,12 +20,12 @@ namespace Blackjack_Mindfire_02
             //****************************
 
             //  Graphical User Interface
-            GUIForm guiGame = new GUIForm();
-            guiGame.Start();
+            //GUIForm guiGame = new GUIForm();
+            //guiGame.Start();
 
             //  Command Line Interface
-            //CLIInterface cliGame = new CLIInterface();
-            //cliGame.StartGame();
+            CLIInterface cliGame = new CLIInterface();
+            cliGame.StartGame();
 
             Console.WriteLine("Hello, Mindfire!");
         }

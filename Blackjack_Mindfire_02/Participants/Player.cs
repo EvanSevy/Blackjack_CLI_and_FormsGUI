@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Blackjack_Mindfire_02.Participants
 {
-    class Player : IParticipant
-    {
-        public Player(String playerName) : base(playerName)
-        {
-        }
-        public bool Hold
-        {
-            get;
-            set;
-        } = false;
-    }
+	public class Player : IParticipant
+	{
+		public Player(string playerName) : base(playerName)
+		{
+		}
+		public bool Hold
+		{
+			get;
+			set;
+		} = false;
+	}
 }

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blackjack_Mindfire_02", "Blackjack_Mindfire_02\Blackjack_Mindfire_02.csproj", "{990391A0-CC87-4CD0-9A92-99E7E51F5EBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blackjack.Tests", "Blackjack.Tests\Blackjack.Tests.csproj", "{A2DC70F2-68E1-4862-B9C5-70A19C7D77FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +17,15 @@ Global
 		{990391A0-CC87-4CD0-9A92-99E7E51F5EBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{990391A0-CC87-4CD0-9A92-99E7E51F5EBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{990391A0-CC87-4CD0-9A92-99E7E51F5EBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2DC70F2-68E1-4862-B9C5-70A19C7D77FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2DC70F2-68E1-4862-B9C5-70A19C7D77FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2DC70F2-68E1-4862-B9C5-70A19C7D77FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2DC70F2-68E1-4862-B9C5-70A19C7D77FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01826AA3-99EB-4A66-BDDA-37B8420F6640}
 	EndGlobalSection
 EndGlobal

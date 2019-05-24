@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Blackjack_Mindfire_02.Participants
 {
-    abstract class IParticipant
+    public abstract class IParticipant
     {
-        public String PlayerName { get; set; }
+        public string PlayerName { get; set; }
         public IParticipant(String playerName)
         {
             PlayerName = playerName;
