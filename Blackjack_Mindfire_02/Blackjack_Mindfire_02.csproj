@@ -48,6 +48,7 @@
     <Compile Include="DeckOLD.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="GameDecks.cs" />
+    <Compile Include="HandCards.cs" />
     <Compile Include="Participants\Dealer.cs" />
     <Compile Include="Participants\HighestHandHelper.cs" />
     <Compile Include="Participants\IParticipant.cs" />

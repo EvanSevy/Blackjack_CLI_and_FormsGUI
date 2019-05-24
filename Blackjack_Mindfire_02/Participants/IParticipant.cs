@@ -9,25 +9,13 @@ namespace Blackjack_Mindfire_02.Participants
     public abstract class IParticipant
     {
         public string PlayerName { get; set; }
-        public IParticipant(String playerName)
+        public IParticipant(string playerName)
         {
             PlayerName = playerName;
         }
-        public List<Card> Hand
-        {
-            get;
-            set;
-        } = new List<Card>();
-        public int Points
-        {
-            get;
-            set;
-        }
-        public bool Bust
-        {
-            get;
-            set;
-        } = false;
+        public List<Card> Hand { get; set; } = new List<Card>();
+        public int Points { get; set; }
+        public bool Bust { get; set; } = false;
         public void Hit(Dealer dealer)
         {
             if (Bust != true)
@@ -48,13 +36,7 @@ namespace Blackjack_Mindfire_02.Participants
         }
         public String DisplayHand()
         {
-            String display = "";
-            foreach (Card card in Hand)
-            {
-                display += card.aCard.ToString();
-                //display += card.DisplayCard();
-            }
-            return display;
+			return String.Join(", ", Hand);
         }
         public override string ToString()
         {

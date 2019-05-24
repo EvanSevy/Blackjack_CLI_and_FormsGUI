@@ -11,10 +11,6 @@ namespace Blackjack_Mindfire_02.Participants
 		public Player(string playerName) : base(playerName)
 		{
 		}
-		public bool Hold
-		{
-			get;
-			set;
-		} = false;
+		public bool Hold { get; set; } = false;
 	}
 }

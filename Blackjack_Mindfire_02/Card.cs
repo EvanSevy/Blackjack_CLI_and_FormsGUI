@@ -20,6 +20,10 @@ namespace Blackjack_Mindfire_02
 			get;
 			set;
 		}
+		public override string ToString()
+		{
+			return aCard.ToString();
+		}
 
 		//public String DisplayCard()
 		//{
