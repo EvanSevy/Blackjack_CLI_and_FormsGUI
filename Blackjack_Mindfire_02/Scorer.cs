@@ -21,10 +21,10 @@ namespace Blackjack_Mindfire_02
         public void ResolvePoints()
         {
             // if both dealer and the player have 2 cards and 21 then each get 1 point
-            if (dealer.Hand.Count == 2 && dealer.ParticipantsHighestHand() == 21 &&
-                players.Where(p => p.ParticipantsHighestHand() == 21).Where(p => p.Hand.Count == 2).Any())
+            if (dealer.Hand.Count == 2 && dealer.Hand.HighestHand() == 21 &&
+                players.Where(p => p.Hand.HighestHand() == 21).Where(p => p.Hand.Count == 2).Any())
             {
-                List<Player> playersTwo21 = players.Where(p => p.ParticipantsHighestHand() == 21).Where(p => p.Hand.Count == 2).ToList<Player>();
+                List<Player> playersTwo21 = players.Where(p => p.Hand.HighestHand() == 21).Where(p => p.Hand.Count == 2).ToList<Player>();
                 foreach (Player player in playersTwo21)
                 {
                     dealer.Points++;
@@ -32,29 +32,29 @@ namespace Blackjack_Mindfire_02
                 }
             }
             // If dealer has 2 cards and 21, and players do not have 2 and 21, then give him 2 points for each player he beats
-            if (dealer.Hand.Count == 2 && dealer.ParticipantsHighestHand() == 21 &&
-                players.Where(p => p.ParticipantsHighestHand() != 21 || p.Hand.Count > 2).Any())
+            if (dealer.Hand.Count == 2 && dealer.Hand.HighestHand() == 21 &&
+                players.Where(p => p.Hand.HighestHand() != 21 || p.Hand.Count > 2).Any())
             {
-                List<Player> playersLess21 = players.Where(p => p.ParticipantsHighestHand() != 21 || p.Hand.Count > 2).ToList<Player>();
+                List<Player> playersLess21 = players.Where(p => p.Hand.HighestHand() != 21 || p.Hand.Count > 2).ToList<Player>();
                 foreach (Player player in playersLess21)
                 {
                     dealer.Points += 2;
                 }
             }
             // If player has 2 cards and 21, and dealer does not, then give the player 2 points
-            if ((dealer.ParticipantsHighestHand() != 21 || dealer.Hand.Count > 2) &&
-                players.Where(p => p.ParticipantsHighestHand() == 21 && p.Hand.Count == 2).Any())
+            if ((dealer.Hand.HighestHand() != 21 || dealer.Hand.Count > 2) &&
+                players.Where(p => p.Hand.HighestHand() == 21 && p.Hand.Count == 2).Any())
             {
-                List<Player> players21DealerLose = players.Where(p => p.ParticipantsHighestHand() == 21 && p.Hand.Count == 2).ToList<Player>();
+                List<Player> players21DealerLose = players.Where(p => p.Hand.HighestHand() == 21 && p.Hand.Count == 2).ToList<Player>();
                 foreach (Player player in players21DealerLose)
                 {
                     player.Points += 2;
                 }
             }
             // If the dealer and the player have the same value (and they are not both at 2 cards and 21), then the dealer gets 1 point
-            if (!dealer.Bust && players.Where(p => p.ParticipantsHighestHand() == dealer.ParticipantsHighestHand() && (dealer.ParticipantsHighestHand() < 21) || dealer.Hand.Count > 2).Any())
+            if (!dealer.Hand.Bust && players.Where(p => p.Hand.HighestHand() == dealer.Hand.HighestHand() && (dealer.Hand.HighestHand() < 21) || dealer.Hand.Count > 2).Any())
             {
-                List<Player> playersEqual = players.Where(p => p.ParticipantsHighestHand() == dealer.ParticipantsHighestHand() && !p.Bust && (p.Hand.Count > 2 || p.ParticipantsHighestHand() < 21)).ToList<Player>();
+                List<Player> playersEqual = players.Where(p => p.Hand.HighestHand() == dealer.Hand.HighestHand() && !p.Hand.Bust && (p.Hand.Count > 2 || p.Hand.HighestHand() < 21)).ToList<Player>();
                 foreach (Player player in playersEqual)
                 {
                     dealer.Points++;
@@ -62,9 +62,9 @@ namespace Blackjack_Mindfire_02
             }
 
             // If the dealer has more points than another player (without busting) and has either more than 2 cards or less than 21 then he gets 1 point for each person he beats
-            if (!dealer.Bust && players.Where(p => p.ParticipantsHighestHand() < dealer.ParticipantsHighestHand() && (dealer.ParticipantsHighestHand() < 21 || dealer.Hand.Count > 2)).Any())
+            if (!dealer.Hand.Bust && players.Where(p => p.Hand.HighestHand() < dealer.Hand.HighestHand() && (dealer.Hand.HighestHand() < 21 || dealer.Hand.Count > 2)).Any())
             {
-                List<Player> playersLost = players.Where(p => p.ParticipantsHighestHand() < dealer.ParticipantsHighestHand() && (dealer.ParticipantsHighestHand() < 21 || dealer.Hand.Count > 2)).ToList<Player>();
+                List<Player> playersLost = players.Where(p => p.Hand.HighestHand() < dealer.Hand.HighestHand() && (dealer.Hand.HighestHand() < 21 || dealer.Hand.Count > 2)).ToList<Player>();
                 foreach (Player player in playersLost)
                 {
                     dealer.Points++;
@@ -72,9 +72,9 @@ namespace Blackjack_Mindfire_02
             }
 
             // If the player has more points than the dealer (without busting) and has either more than 2 cards or less than 21 then the player gets 1 point
-            if (players.Where(p => p.ParticipantsHighestHand() > dealer.ParticipantsHighestHand() && (p.ParticipantsHighestHand() < 21 || p.Hand.Count > 2) && p.Bust != true).Any())
+            if (players.Where(p => p.Hand.HighestHand() > dealer.Hand.HighestHand() && (p.Hand.HighestHand() < 21 || p.Hand.Count > 2) && p.Hand.Bust != true).Any())
             {
-                List<Player> playersWon = players.Where(p => p.ParticipantsHighestHand() > dealer.ParticipantsHighestHand() && (p.ParticipantsHighestHand() < 21 || p.Hand.Count > 2) && p.Bust != true).ToList<Player>();
+                List<Player> playersWon = players.Where(p => p.Hand.HighestHand() > dealer.Hand.HighestHand() && (p.Hand.HighestHand() < 21 || p.Hand.Count > 2) && p.Hand.Bust != true).ToList<Player>();
                 foreach (Player player in playersWon)
                 {
                     player.Points++;
@@ -84,9 +84,9 @@ namespace Blackjack_Mindfire_02
         public List<IParticipant> FindWinners()
         {
             List<IParticipant> winners = new List<IParticipant>();
-            if (!dealer.Bust)
+            if (!dealer.Hand.Bust)
                 winners.Add(dealer);
-            foreach (Player player in players.Where(p => p.Bust != true))
+            foreach (Player player in players.Where(p => p.Hand.Bust != true))
             {
                 if (winners.Count == 0)
                     winners.Add(player);

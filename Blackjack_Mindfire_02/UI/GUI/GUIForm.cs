@@ -49,7 +49,7 @@ namespace Blackjack_Mindfire_02.UI.GUI
 
                 gameInterface.dealer.InitialDeal(gameInterface.players);
                 dealersHandTextBox.Text = gameInterface.dealer.DisplayHand();
-                dealersScoreTextBox.Text = gameInterface.dealer.ParticipantsHighestHand().ToString();
+                dealersScoreTextBox.Text = gameInterface.dealer.Hand.HighestHand().ToString();
 
                 foreach(Player player in gameInterface.players)
                 {
@@ -62,14 +62,14 @@ namespace Blackjack_Mindfire_02.UI.GUI
         private void playersComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Player selectedPlayer = gameInterface.players[playersComboBox.SelectedIndex];
-            if(selectedPlayer.Bust != true && selectedPlayer.Hold != true)
+            if(selectedPlayer.Hand.Bust != true && selectedPlayer.Hold != true)
             {
                 hitButton.Enabled = true;
                 holdButton.Enabled = true;
             }
             playersHandTextBox.Text = selectedPlayer.DisplayHand();
-            playersScoreTextBox.Text = selectedPlayer.ParticipantsHighestHand().ToString();
-            if (selectedPlayer.Bust || selectedPlayer.Hold)
+            playersScoreTextBox.Text = selectedPlayer.Hand.HighestHand().ToString();
+            if (selectedPlayer.Hand.Bust || selectedPlayer.Hold)
             {
                 hitButton.Enabled = false;
                 holdButton.Enabled = false;
@@ -81,8 +81,8 @@ namespace Blackjack_Mindfire_02.UI.GUI
             Player selectedPlayer = gameInterface.players[playersComboBox.SelectedIndex];
             selectedPlayer.Hit(gameInterface.dealer);
             playersHandTextBox.Text = selectedPlayer.DisplayHand();
-            playersScoreTextBox.Text = selectedPlayer.ParticipantsHighestHand().ToString();
-            if(selectedPlayer.Bust == true)
+            playersScoreTextBox.Text = selectedPlayer.Hand.HighestHand().ToString();
+            if(selectedPlayer.Hand.Bust == true)
             {
                 hitButton.Enabled = false;
                 holdButton.Enabled = false;
@@ -101,11 +101,11 @@ namespace Blackjack_Mindfire_02.UI.GUI
         // If everyone is either busted or holding, then resolve the dealers hand, find points awarded and find who won
         public void AllBustOrHold()
         {
-            if (gameInterface.players.All(p => p.Bust == true || p.Hold == true))
+            if (gameInterface.players.All(p => p.Hand.Bust == true || p.Hold == true))
             {
                 gameInterface.dealer.ResolveDealerRound(gameInterface.players);
                 dealersHandTextBox.Text = gameInterface.dealer.DisplayHand();
-                dealersScoreTextBox.Text = gameInterface.dealer.ParticipantsHighestHand().ToString();
+                dealersScoreTextBox.Text = gameInterface.dealer.Hand.HighestHand().ToString();
                 gameInterface.scorer.ResolvePoints();
 
                 participantsPointsTextBox.Text += $"Player {gameInterface.dealer.PlayerName}, got {gameInterface.dealer.Points} points.\n";

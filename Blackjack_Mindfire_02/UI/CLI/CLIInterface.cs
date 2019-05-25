@@ -29,7 +29,7 @@ namespace Blackjack_Mindfire_02.UI.CLI
                 for (int i = 0; i < players.Count; i++)
                 {
                     Console.WriteLine($"Player #{players[i].PlayerName}s hand: ");
-                    Console.WriteLine($"{players[i].DisplayHand()} -> [TOTAL: {players[i].ParticipantsHighestHand()}]");
+                    Console.WriteLine($"{players[i].DisplayHand()} -> [TOTAL: {players[i].Hand.HighestHand()}]");
                 }
                 Console.WriteLine("Dealers hand: ");
                 // start at 1 to skip the dealers hidden card
@@ -42,11 +42,11 @@ namespace Blackjack_Mindfire_02.UI.CLI
                 }
                 Console.WriteLine();
                 // Players keep choosing 'Hit' or 'Hold' until every player is either holding or busted
-                while (players.Where(p => p.Hold == false && p.Bust == false).Any())
+                while (players.Where(p => p.Hold == false && p.Hand.Bust == false).Any())
                 {
-                    foreach (Player player in players.Where(p => p.Hold == false && p.Bust == false))
+                    foreach (Player player in players.Where(p => p.Hold == false && p.Hand.Bust == false))
                     {
-                        Console.WriteLine($"Player #{player.PlayerName} has the following hand: {player.DisplayHand()} -> [TOTAL: {player.ParticipantsHighestHand()}]");
+                        Console.WriteLine($"Player #{player.PlayerName} has the following hand: {player.DisplayHand()} -> [TOTAL: {player.Hand.HighestHand()}]");
                         bool notValidInput = true;
                         String hitOrHold = "";
                         while (notValidInput)
@@ -60,13 +60,13 @@ namespace Blackjack_Mindfire_02.UI.CLI
                             player.Hit(dealer);
                         else
                             player.Hold = true;
-                        Console.WriteLine($"Player #{player.PlayerName} now has the following hand: {player.DisplayHand()} -> [TOTAL: {player.ParticipantsHighestHand()}]");
+                        Console.WriteLine($"Player #{player.PlayerName} now has the following hand: {player.DisplayHand()} -> [TOTAL: {player.Hand.HighestHand()}]");
                     }
                 }
                 Console.WriteLine("Dealer now takes their turn.");
                 dealer.ResolveDealerRound(players);
                 Console.WriteLine("Dealer has the following hand: ");
-                Console.WriteLine($"{dealer.DisplayHand()} ->  [TOTAL: {dealer.ParticipantsHighestHand()}]");
+                Console.WriteLine($"{dealer.DisplayHand()} ->  [TOTAL: {dealer.Hand.HighestHand()}]");
                 Console.WriteLine("Resolving all participants points...");
                 scorer.ResolvePoints();
                 Console.WriteLine($"Dealer got {dealer.Points} points.");

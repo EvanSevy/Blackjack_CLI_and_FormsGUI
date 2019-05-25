@@ -74,9 +74,9 @@ namespace Blackjack.Tests
 			player1.Hand.Should().NotBeEquivalentTo(new List<Card>() { new Card(Card.Cards.BUST) });
 			player2.Hand.Should().NotBeEquivalentTo(new List<Card>() { new Card(Card.Cards.BUST) });
 
-			dealer.Bust.Should().BeFalse();
-			player1.Bust.Should().BeFalse();
-			player2.Bust.Should().BeFalse();
+			dealer.Hand.Bust.Should().BeFalse();
+			player1.Hand.Bust.Should().BeFalse();
+			player2.Hand.Bust.Should().BeFalse();
 
 			dealer.Hand.Count.Should().Be(2);
 			player1.Hand.Count.Should().Be(2);
@@ -89,7 +89,7 @@ namespace Blackjack.Tests
 			dealer.Hand.Add(new Card(Card.Cards.Ten));
 
 			dealer.ResolveUnderSeventeen();
-			var handValue = dealer.ParticipantsHighestHand();
+			var handValue = dealer.Hand.HighestHand();
 
 			Assert.That(handValue, Is.GreaterThan(16).Or.EqualTo(0));
 		}
@@ -100,7 +100,7 @@ namespace Blackjack.Tests
 			dealer.Hand.Add(new Card(Card.Cards.Ace));
 
 			dealer.ResolveHighAceAndUnderEighteen();
-			var handValue = dealer.ParticipantsHighestHand();
+			var handValue = dealer.Hand.HighestHand();
 
 			Assert.That(handValue, Is.GreaterThan(17).Or.EqualTo(0));
 		}
@@ -112,7 +112,7 @@ namespace Blackjack.Tests
 			dealer.Hand.Add(new Card(Card.Cards.Ace));
 
 			dealer.ResolveHighAceAndUnderEighteen();
-			var handValue = dealer.ParticipantsHighestHand();
+			var handValue = dealer.Hand.HighestHand();
 
 			handValue.Should().Be(17);
 		}
@@ -123,7 +123,7 @@ namespace Blackjack.Tests
 			var player = new Player("PlayerOne") { Hand = new HandCards() { new Card(Card.Cards.Ten), new Card(Card.Cards.Queen) } };
 
 			dealer.ResolveUnderAnyPlayers(new List<Player>() { player });
-			var handValue = dealer.ParticipantsHighestHand();
+			var handValue = dealer.Hand.HighestHand();
 
 			Assert.That(handValue, Is.GreaterThanOrEqualTo(20).Or.EqualTo(0));
 		}

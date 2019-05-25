@@ -51,7 +51,7 @@ namespace Blackjack_Mindfire_02.Participants
 		}
 		public void ResolveUnderSeventeen()
 		{
-			while (ParticipantsHighestHand() < 17 && this.Bust != true)
+			while (Hand.HighestHand() < 17 && Hand.Bust != true)
 			{
 				Hit(this);
 			}
@@ -61,7 +61,7 @@ namespace Blackjack_Mindfire_02.Participants
 			bool hasHighAce = HighestHandHelper.HasHighAce(Hand);
 			if (hasHighAce)
 			{
-				while (ParticipantsHighestHand() < 18 && this.Bust != true)
+				while (Hand.HighestHand() < 18 && Hand.Bust != true)
 				{
 					Hit(this);
 				}
@@ -72,7 +72,7 @@ namespace Blackjack_Mindfire_02.Participants
 			// As long as under the value of any of the players, then dealer keeps hitting.
 			foreach (Player player in players)
 			{
-				while (this.ParticipantsHighestHand() < player.ParticipantsHighestHand() && this.Bust != true)
+				while (Hand.HighestHand() < player.Hand.HighestHand() && Hand.Bust != true)
 				{
 					Hit(this);
 				}

@@ -15,27 +15,12 @@ namespace Blackjack_Mindfire_02.Participants
         }
         public HandCards Hand { get; set; } = new HandCards();
         public int Points { get; set; }
-        public bool Bust { get; set; } = false;
-		public void Hit(Dealer dealer)
-		{
-			if (Bust != true)
-			{
-				Hand.Add(dealer.DealCard());
-				if (ParticipantsHighestHand() > 21)
-					Bust = true;
-			}
-			if (Bust == true)
-			{
-				Hand.Clear();
-				Hand.Add(new Card(Card.Cards.BUST));
-			}
-		}
-		//public Card Hit(Dealer dealer)
+        
+		//public void Hit(Dealer dealer)
 		//{
-		//	Card newCard;
 		//	if (Bust != true)
 		//	{
-		//		newCard = dealer.DealCard();
+		//		Hand.Add(dealer.DealCard());
 		//		if (ParticipantsHighestHand() > 21)
 		//			Bust = true;
 		//	}
@@ -45,10 +30,10 @@ namespace Blackjack_Mindfire_02.Participants
 		//		Hand.Add(new Card(Card.Cards.BUST));
 		//	}
 		//}
-		public int ParticipantsHighestHand()
-        {
-            return HighestHandHelper.HighestPossibleHand(Hand);
-        }
+		public void Hit(Dealer dealer)
+		{
+			Hand.Add(dealer.DealCard());
+		}
         public String DisplayHand()
         {
 			return String.Join(", ", Hand);
