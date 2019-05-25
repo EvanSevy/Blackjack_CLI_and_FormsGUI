@@ -10,11 +10,23 @@ namespace Blackjack.Tests
 {
 	public class DealerShould
 	{
+		Dealer dealer;
+		[SetUp]
+		public void Init()
+		{
+			dealer = new Dealer(1);
+		}
+		[TearDown]
+		public void Cleanup()
+		{
+			dealer = null;
+		}
+
 		[Test]
-		public void ReturnsDeckOn_DealerPickRandomDeck()
+		public void ReturnsDeck_ON_DealerPickRandomDeck()
 		{
 			// Arrange
-			var dealer = new Dealer(amtDecks: 3);
+			dealer = new Dealer(amtDecks: 3);
 
 			// Act
 			var sut = dealer.PickRandomDeck();
@@ -23,9 +35,8 @@ namespace Blackjack.Tests
 			sut.Should().NotBeNullOrEmpty();
 		}
 		[Test]
-		public void ReturnCardOn_FiftySecondDealCard()
+		public void ReturnCard_When52ndCard_ON_DealCard()
 		{
-			var dealer = new Dealer(1);
 
 			for (int i = 0; i < 51; i++)
 			{
@@ -35,37 +46,45 @@ namespace Blackjack.Tests
 
 			sutLastCard.Should().NotBeNull();
 		}
-		[Test]
-		public void ThrowExceptionOn_FiftyThirdDealCard()
-		{
-			var dealer = new Dealer(1);
+		//[Test]
+		//public void ThrowException_WhenOver52Cards_ON_DealCard()
+		//{
+		//	var dealer = new Dealer(1);
 
-			for (int i = 0; i < 52; i++)
-			{
-				dealer.DealCard();
-			}
-			Action sutAfter52ndCard = () => dealer.DealCard();
+		//	for (int i = 0; i < 52; i++)
+		//	{
+		//		dealer.DealCard();
+		//	}
+		//	Action sutAfter52ndCard = () => dealer.DealCard();
 
-			sutAfter52ndCard.Should().Throw<Exception>();
-		}
+		//	sutAfter52ndCard.Should().Throw<Exception>();
+		//}
+
 		[Test]
-		public void EveryoneHasTwoCardsOn_InitialDeal()
+		public void EveryoneHasTwoCards_ON_InitialDeal()
 		{
-			var dealer = new Dealer(1);
 			var player1 = new Player("Player 1");
 			var player2 = new Player("Player 2");
 			var players = new List<Player>() { player1, player2 };
 
 			dealer.InitialDeal(players);
 
-			//dealer.Hand.Count.Should().Be(2);
+
+			dealer.Hand.Should().NotBeEquivalentTo(new List<Card>() { new Card(Card.Cards.BUST) });
+			player1.Hand.Should().NotBeEquivalentTo(new List<Card>() { new Card(Card.Cards.BUST) });
+			player2.Hand.Should().NotBeEquivalentTo(new List<Card>() { new Card(Card.Cards.BUST) });
+
+			dealer.Bust.Should().BeFalse();
+			player1.Bust.Should().BeFalse();
+			player2.Bust.Should().BeFalse();
+
+			dealer.Hand.Count.Should().Be(2);
 			player1.Hand.Count.Should().Be(2);
 			player2.Hand.Count.Should().Be(2);
 		}
 		[Test]
-		public void HitCalledOn_ResolveDealerRound_UnderSeventeen()
+		public void HitCalled_WhenUnder17_ON_UnderSeventeen()
 		{
-			var dealer = new Dealer(1);
 			dealer.Hand.Add(new Card(Card.Cards.Six));
 			dealer.Hand.Add(new Card(Card.Cards.Ten));
 
@@ -75,9 +94,8 @@ namespace Blackjack.Tests
 			Assert.That(handValue, Is.GreaterThan(16).Or.EqualTo(0));
 		}
 		[Test]
-		public void HitCalled_WithHighAceOn_ResolveDealerRound_HighAceAndUnderEighteen()
+		public void HitCalled_WhenWithHighAce_ON_HighAceAndUnderEighteen()
 		{
-			var dealer = new Dealer(1);
 			dealer.Hand.Add(new Card(Card.Cards.Six));
 			dealer.Hand.Add(new Card(Card.Cards.Ace));
 
@@ -87,9 +105,8 @@ namespace Blackjack.Tests
 			Assert.That(handValue, Is.GreaterThan(17).Or.EqualTo(0));
 		}
 		[Test]
-		public void HitNotCalled_WithOutHighAceOn_ResolveDealerRound_HighAceAndUnderEighteen()
+		public void HitNotCalled_WhenWithOutHighAce_ON_HighAceAndUnderEighteen()
 		{
-			var dealer = new Dealer(1);
 			dealer.Hand.Add(new Card(Card.Cards.Ten));
 			dealer.Hand.Add(new Card(Card.Cards.Six));
 			dealer.Hand.Add(new Card(Card.Cards.Ace));
@@ -100,9 +117,8 @@ namespace Blackjack.Tests
 			handValue.Should().Be(17);
 		}
 		[Test]
-		public void HitCalled_WhenUnderAnyPlayersOn_ResolveDealerRound_ResolveUnderAnyPlayers()
+		public void HitCalled_WhenUnderAnyPlayers_ON_ResolveUnderAnyPlayers()
 		{
-			var dealer = new Dealer(1);
 			dealer.Hand.Add(new Card(Card.Cards.Two));
 			var player = new Player("PlayerOne") { Hand = new List<Card>() { new Card(Card.Cards.Ten), new Card(Card.Cards.Queen) } };
 
@@ -111,6 +127,26 @@ namespace Blackjack.Tests
 
 			Assert.That(handValue, Is.GreaterThanOrEqualTo(20).Or.EqualTo(0));
 		}
+		[Test]
+		public void HandBust_WhenHandAt21_ON_Hit()
+		{
+			dealer.Hand.Add(new Card(Card.Cards.Ten));
+			dealer.Hand.Add(new Card(Card.Cards.Ten));
+			dealer.Hand.Add(new Card(Card.Cards.Ace));
 
+			dealer.Hit(dealer);
+
+			dealer.Hand.Should().BeEquivalentTo(new List<Card>() { new Card(Card.Cards.BUST) });
+		}
+		[Test]
+		public void HandValid_WhenHandAt10_ON_Hit()
+		{
+			dealer.Hand.Add(new Card(Card.Cards.Ten));
+
+			dealer.Hit(dealer);
+			var handValue = HighestHandHelper.HighestPossibleHand(dealer.Hand);
+
+			Assert.That(handValue, Is.GreaterThan(10).And.LessThanOrEqualTo(21));
+		}
 	}
 }
