@@ -9,7 +9,7 @@ namespace Blackjack_Mindfire_02.Participants
 	public static class HighestHandHelper
 	{
 		//  Finds the highest possible hand value.  ie. when an Ace can be either '1' or '11'.
-		public static int HighestPossibleHand(List<Card> currentHand)
+		public static int HighestPossibleHand(HandCards currentHand)
 		{
 			int amtAces = 0;
 			int totalBeforeAces = 0;
@@ -42,7 +42,7 @@ namespace Blackjack_Mindfire_02.Participants
 			return grandTotal;
 		}
 		// Used for the part of the spec that states that if the dealer has a 'high ace' in his hand...
-		public static bool HasHighAce(List<Card> currentHand)
+		public static bool HasHighAce(HandCards currentHand)
 		{
 			int amtAces = 0;
 			int totalBeforeAces = 0;

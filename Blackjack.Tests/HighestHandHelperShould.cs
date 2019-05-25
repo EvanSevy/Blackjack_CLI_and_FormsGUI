@@ -8,12 +8,12 @@ using System.Text;
 
 namespace Blackjack.Tests
 {
-	class IParticipantShould
+	class HighestHandHelperShould
 	{
 		[Test]
 		public void LowAceResult_ON_HighestPossibleHand()
 		{
-			List<Card> currentHand = new List<Card>() {
+			HandCards currentHand = new HandCards() {
 				new Card(Card.Cards.Ten),
 				new Card(Card.Cards.Nine),
 				new Card(Card.Cards.Ace)
@@ -26,7 +26,7 @@ namespace Blackjack.Tests
 		[Test]
 		public void HighAceResult_ON_HighestPossibleHand()
 		{
-			List<Card> currentHand = new List<Card>() {
+			HandCards currentHand = new HandCards() {
 				new Card(Card.Cards.Ten),
 				new Card(Card.Cards.Ace)
 			};
@@ -38,7 +38,7 @@ namespace Blackjack.Tests
 		[Test]
 		public void HaveHighAceResult_ON_HasHighAce()
 		{
-			List<Card> currentHand = new List<Card>() {
+			HandCards currentHand = new HandCards {
 				new Card(Card.Cards.Ten),
 				new Card(Card.Cards.Ace)
 			};
@@ -50,7 +50,7 @@ namespace Blackjack.Tests
 		[Test]
 		public void NotHaveHighAceResult_ON_HasHighAce()
 		{
-			List<Card> currentHand = new List<Card>() {
+			HandCards currentHand = new HandCards() {
 				new Card(Card.Cards.Ten),
 				new Card(Card.Cards.Nine),
 				new Card(Card.Cards.Ace)

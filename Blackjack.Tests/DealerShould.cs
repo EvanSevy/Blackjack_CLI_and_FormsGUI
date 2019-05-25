@@ -120,7 +120,7 @@ namespace Blackjack.Tests
 		public void HitCalled_WhenUnderAnyPlayers_ON_ResolveUnderAnyPlayers()
 		{
 			dealer.Hand.Add(new Card(Card.Cards.Two));
-			var player = new Player("PlayerOne") { Hand = new List<Card>() { new Card(Card.Cards.Ten), new Card(Card.Cards.Queen) } };
+			var player = new Player("PlayerOne") { Hand = new HandCards() { new Card(Card.Cards.Ten), new Card(Card.Cards.Queen) } };
 
 			dealer.ResolveUnderAnyPlayers(new List<Player>() { player });
 			var handValue = dealer.ParticipantsHighestHand();

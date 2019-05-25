@@ -13,7 +13,7 @@ namespace Blackjack_Mindfire_02.Participants
         {
             PlayerName = playerName;
         }
-        public List<Card> Hand { get; set; } = new List<Card>();
+        public HandCards Hand { get; set; } = new HandCards();
         public int Points { get; set; }
         public bool Bust { get; set; } = false;
 		public void Hit(Dealer dealer)
@@ -30,7 +30,7 @@ namespace Blackjack_Mindfire_02.Participants
 				Hand.Add(new Card(Card.Cards.BUST));
 			}
 		}
-		//public void Hit(Dealer dealer)
+		//public Card Hit(Dealer dealer)
 		//{
 		//	Card newCard;
 		//	if (Bust != true)

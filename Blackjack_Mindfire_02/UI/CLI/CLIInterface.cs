@@ -37,7 +37,7 @@ namespace Blackjack_Mindfire_02.UI.CLI
                 for (int i = 1; i < dealer.Hand.Count; i++)
                 {
 
-                    Console.Write(dealer.Hand[i].aCard.ToString());
+                    Console.Write(dealer.Hand.Hand[i].aCard.ToString());
                     //Console.Write(dealer.Hand[i].DisplayCard());
                 }
                 Console.WriteLine();
