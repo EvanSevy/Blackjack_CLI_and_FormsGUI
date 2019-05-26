@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Blackjack.Tests
 {
-	class HighestHandHelperShould
+	class HandCardsShould
 	{
 		[Test]
 		public void LowAceResult_ON_HighestPossibleHand()
@@ -19,7 +19,7 @@ namespace Blackjack.Tests
 				new Card(Card.Cards.Ace)
 			};
 
-			int highestHand = HighestHandHelper.HighestPossibleHand(currentHand);
+			int highestHand = currentHand.HighestHand();
 
 			highestHand.Should().Be(20);
 		}
@@ -31,7 +31,7 @@ namespace Blackjack.Tests
 				new Card(Card.Cards.Ace)
 			};
 
-			int highestHand = HighestHandHelper.HighestPossibleHand(currentHand);
+			int highestHand = currentHand.HighestHand();
 
 			highestHand.Should().Be(21);
 		}
@@ -43,12 +43,12 @@ namespace Blackjack.Tests
 				new Card(Card.Cards.Ace)
 			};
 
-			bool hasHighAce = HighestHandHelper.HasHighAce(currentHand);
+			bool hasHighAce = currentHand.HasHighAce();
 
 			hasHighAce.Should().BeTrue();
 		}
 		[Test]
-		public void NotHaveHighAceResult_ON_HasHighAce()
+		public void HaveNoHighAceResult_ON_HasHighAce()
 		{
 			HandCards currentHand = new HandCards() {
 				new Card(Card.Cards.Ten),
@@ -56,7 +56,7 @@ namespace Blackjack.Tests
 				new Card(Card.Cards.Ace)
 			};
 
-			bool hasHighAce = HighestHandHelper.HasHighAce(currentHand);
+			bool hasHighAce = currentHand.HasHighAce();
 
 			hasHighAce.Should().BeFalse();
 		}

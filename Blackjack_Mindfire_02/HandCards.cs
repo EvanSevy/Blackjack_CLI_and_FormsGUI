@@ -28,10 +28,6 @@ namespace Blackjack_Mindfire_02
 		}
 		public int HighestHand()
 		{
-			return HighestPossibleHand();
-		}
-		public int HighestPossibleHand()
-		{
 			int amtAces = 0;
 			int totalBeforeAces = 0;
 			int grandTotal = 0;
@@ -44,7 +40,8 @@ namespace Blackjack_Mindfire_02
 			}
 			foreach (Card card in Hand.Where(c => c.aCard != Card.Cards.Ace))
 			{
-				totalBeforeAces += (Int32)card.aCard;
+				var valueOfCard = Convert.ToInt32(card.aCard) > 10 ? 10 : Convert.ToInt32(card.aCard);
+				totalBeforeAces += valueOfCard;
 				//totalBeforeAces += card.CardValue();
 			}
 			grandTotal = totalBeforeAces;
@@ -61,6 +58,41 @@ namespace Blackjack_Mindfire_02
 				amtAces--;
 			}
 			return grandTotal;
+		}
+		public bool HasHighAce()
+		{
+			int amtAces = 0;
+			int totalBeforeAces = 0;
+			int grandTotal = 0;
+			foreach (Card card in Hand)
+			{
+				if (card.aCard == Card.Cards.Ace)
+				{
+					amtAces++;
+				}
+			}
+			if (amtAces == 0)
+				return false;
+			foreach (Card card in Hand.Where(c => c.aCard != Card.Cards.Ace))
+			{
+				totalBeforeAces += (Int32)card.aCard;
+				//totalBeforeAces += card.CardValue();
+			}
+			grandTotal = totalBeforeAces;
+			while (amtAces > 0)
+			{
+				if (totalBeforeAces + 11 > 21)
+				{
+					grandTotal += 1;
+				}
+				else
+				{
+					// grandTotal += 11;
+					return true;
+				}
+				amtAces--;
+			}
+			return false;
 		}
 		public void Clear() { Hand.Clear(); }
 		public int Count { get { return Hand.Count; } }

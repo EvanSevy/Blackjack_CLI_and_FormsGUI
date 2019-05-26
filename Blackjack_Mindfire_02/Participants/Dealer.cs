@@ -22,7 +22,7 @@ namespace Blackjack_Mindfire_02.Participants
 			Random r = new Random();
 			return Decks.Decks[r.Next(0, Decks.Decks.Count)];
 		}
-		public Card DealCard()
+		public virtual Card DealCard()
 		{
 			if (CurrentDeck.Cards.Count <= 0)
 			{
@@ -58,7 +58,7 @@ namespace Blackjack_Mindfire_02.Participants
 		}
 		public void ResolveHighAceAndUnderEighteen()
 		{
-			bool hasHighAce = HighestHandHelper.HasHighAce(Hand);
+			bool hasHighAce = Hand.HasHighAce();
 			if (hasHighAce)
 			{
 				while (Hand.HighestHand() < 18 && Hand.Bust != true)

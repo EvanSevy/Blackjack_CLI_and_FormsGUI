@@ -15,21 +15,6 @@ namespace Blackjack_Mindfire_02.Participants
         }
         public HandCards Hand { get; set; } = new HandCards();
         public int Points { get; set; }
-        
-		//public void Hit(Dealer dealer)
-		//{
-		//	if (Bust != true)
-		//	{
-		//		Hand.Add(dealer.DealCard());
-		//		if (ParticipantsHighestHand() > 21)
-		//			Bust = true;
-		//	}
-		//	if (Bust == true)
-		//	{
-		//		Hand.Clear();
-		//		Hand.Add(new Card(Card.Cards.BUST));
-		//	}
-		//}
 		public void Hit(Dealer dealer)
 		{
 			Hand.Add(dealer.DealCard());
